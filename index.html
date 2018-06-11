@@ -225,26 +225,26 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" method="post">
                             <div class="row">
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                                    <input name="name" type="text" class="form-control" id="name" name ="from_name" placeholder="Your name..." required="">
                                   </fieldset>
                                 </div>
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
+                                    <input name="email" type="email" class="form-control" id="email" name="reply_to" placeholder="Your email..." required="">
                                   </fieldset>
                                 </div>
                                  <div class="col-md-12">
                                   <fieldset>
-                                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..." required="">
+                                    <input name="subject" type="text" class="form-control" id="subject"  placeholder="Subject..." required="">
                                   </fieldset>
                                 </div>
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                                    <textarea name="message" rows="6" class="form-control" id="message" name = "message_html" placeholder="Your message..." required=""></textarea>
                                   </fieldset>
                                 </div>
                                 <div class="col-md-12">
@@ -254,6 +254,33 @@
                                 </div>
                             </div>
                         </form>
+                        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+                        <script type="text/javascript">
+                            (function(){
+                                emailjs.init("user_SG.5hcLms6WTxq99rQca-SQkw.pL87FCZuB59DRlhkkNP29fPkKQeujUAFAXTSaFvC2Ow");
+                            })();
+                        </script>
+                        <script>
+                        var myform = $("form#action");
+                        myform.submit(function(event){
+                            event.preventDefault();
+
+                        // Change to your service ID, or keep using the default service
+                        var service_id = "default_service";
+                        var template_id = "template_X0uEGWGV";
+
+                        myform.find("button").text("Sending...");
+                        emailjs.sendForm(service_id,template_id,"action")
+                            .then(function(){ 
+                                alert("Sent!");
+                            myform.find("button").text("Send");
+                            }, function(err) {
+                            alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+                            myform.find("button").text("Send");
+                            });
+                        return false;
+                        });</script>
                     </div>
                 </div>
             </div>
