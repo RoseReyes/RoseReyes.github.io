@@ -14,7 +14,6 @@
     </form>
     
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){
@@ -23,16 +22,15 @@
     </script>
     <script>
         var myform = $("form#myform");
-myform.submit(function(event){
-	event.preventDefault();
+        myform.submit(function(event){
+	    event.preventDefault();
 
-  // Change to your service ID, or keep using the default service
-  var service_id = "sendgrid";
-  var template_id = "template_X0uEGWGV";
+        // Change to your service ID, or keep using the default service
+        var service_id = "sendgrid";
+        var template_id = "template_X0uEGWGV";
 
-  myform.find("button").text("Sending...");
-  emailjs.sendForm(service_id,template_id,"myform")
-  	.then(function(){ 
+        myform.find("button").text("Sending...");
+        emailjs.sendForm(service_id,template_id,"myform").then(function(){ 
     	alert("Sent!");
        myform.find("button").text("Send");
     }, function(err) {
@@ -41,4 +39,4 @@ myform.submit(function(event){
     });
   return false;
 });
-    </script>
+</script>
