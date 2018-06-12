@@ -288,11 +288,6 @@
             })();
         </script>
         <script>
-            function resetForms() {
-                document.getElementById['contact'].reset();
-            }
-            resetForms();
-
             var myform = $("form#contact");
             console.log("where is the bug",0);
             myform.submit(function(event){
@@ -306,7 +301,6 @@
             myform.find("button").text("Sending...");
             emailjs.sendForm(service_id,template_id,"contact").then(function(){ 
             alert("This is Rose Reyes and Thank you for reaching out. I'll get back to you soon!");
-            resetForms();
         myform.find("button").text("Send");
         }, function(err) {
         alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
