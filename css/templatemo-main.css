@@ -420,6 +420,7 @@ nav a:hover::before {
 
 .Hire-Me{
 	color: #fff;
+	font-family: 'Kaushan Script', cursive;
 }
 .second-content .left-content {
 	padding: 60px;
@@ -473,12 +474,11 @@ nav a:hover::before {
 
 .third-content .container-fluid {
 	padding-right: 7.5px;
-	padding-left: 7.5px;
+	padding-left: 7.5px; 
 }
 
 .third-content .first-section .left-content {
-	margin-right: 15px;
-	margin-top: 12px;
+	margin-right: 12px;
 }
 
 .third-content .first-section .right-image {
@@ -517,7 +517,7 @@ nav a:hover::before {
 	letter-spacing: 0.5px;
 	font-weight: 300;
 	line-height: 24px;
-	margin-bottom: 20px;
+	margin-bottom: 20px; 
 }
 
 .third-content .main-btn a {
@@ -756,6 +756,7 @@ nav a:hover::before {
 
 	.third-content .second-section .left-image {
 		margin-right: 0px;
+		margin-bottom: 10px; 
 	}
 
 	.fifth-content #map {
